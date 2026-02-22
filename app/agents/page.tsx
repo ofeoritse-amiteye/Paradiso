@@ -5,7 +5,7 @@ import FindAgentFAQ from "@/components/agents/FindAgentFAQ";
 
 export default function AgentsPage() {
     return (
-        <main className="bg-white">
+        <main style={{ backgroundColor: '#06100A' }}>
             <AgentHero />
             <AgentBenefits />
             <FeaturedAgents />
