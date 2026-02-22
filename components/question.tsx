@@ -1,5 +1,5 @@
 "use client";
-import { FiPlus } from "react-icons/fi";
+
 import { FAQ } from "./FAQ";
 import { FAQs } from "@/constants/faqs";
 import { useState } from "react";
@@ -12,9 +12,7 @@ export default function FAQSection() {
 
   const handleShowTooltip = () => {
     setShowTooltip(true);
-    setTimeout(() => {
-      setShowTooltip(false);
-    }, 2000);
+    setTimeout(() => setShowTooltip(false), 2000);
   };
 
   const faqsToShow = showAll ? FAQs : FAQs.slice(0, initialCount);
@@ -22,40 +20,73 @@ export default function FAQSection() {
   return (
     <div
       id="faq"
-      className="w-full lg:min-h-[calc(100vh-120px)] h-auto px-4 md:px-8 py-12 box-border bg-[#F8F9FA]"
+      className="w-full min-h-[60vh] "
+      style={{ backgroundColor: "#06100A" }}
     >
-      <div className="w-full h-auto lg:h-full bg-white flex flex-col md:flex-row items-start justify-between rounded-3xl px-6 py-12 lg:p-16 shadow-2xl border border-gray-100/50">
-        <div className="w-full md:w-1/2 lg:w-[45%] box-border flex flex-col items-center md:items-start justify-start mb-10 md:mb-0">
-          <span className="bg-blue-100 text-blue-700 font-bold rounded-full px-4 py-1 text-xs tracking-wide uppercase mb-6">
+      <div
+        className="w-full max-w-[95%] mx-auto flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16 rounded-3xl px-6 py-12 lg:p-16 border"
+        style={{
+          background: "rgba(255,255,255,0.03)",
+          backdropFilter: "blur(16px)",
+          borderColor: "rgba(255,255,255,0.08)",
+          boxShadow: "0 24px 60px rgba(0,0,0,0.25)",
+        }}
+      >
+        <div className="w-full lg:w-[45%] flex flex-col items-center lg:items-start justify-start">
+          <span
+            className="font-bold rounded-full px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase mb-6"
+            style={{
+              color: "#C9A84C",
+              border: "1px solid rgba(201,168,76,0.35)",
+              background: "rgba(201,168,76,0.1)",
+            }}
+          >
             FAQ
           </span>
 
-          <h3 className="text-3xl md:text-5xl text-black font-bold text-center md:text-left font-heading leading-tight mb-6">
-            Frequently <span className="text-blue-600">Asked</span> Questions
+          <h3
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-center lg:text-left leading-tight mb-6"
+            style={{ fontFamily: "'Cormorant Garamond', serif", color: "#F0EBE1" }}
+          >
+            Frequently <span style={{ color: "#C9A84C" }}>Asked</span> Questions
           </h3>
 
-          <span className="text-gray-600 w-full text-center md:text-left text-lg leading-relaxed mb-8">
-            Find answers to common questions about buying, selling, and renting with HomeFinder.
-            If you need more help, feel free to reach out to our support team.
-          </span>
+          <p
+            className="text-center lg:text-left text-lg leading-relaxed mb-8"
+            style={{ color: "rgba(240,235,225,0.75)" }}
+          >
+            Find answers to common questions about buying, selling, and renting with Paradiso.
+            Need more help? Reach out to our support team.
+          </p>
 
-          <div className="relative space-y-3 w-full flex flex-col items-center md:items-start">
+          <div className="relative">
             <button
               onClick={handleShowTooltip}
-              className="bg-black text-white rounded-full px-10 py-4 font-bold hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="rounded-full px-8 py-3.5 font-bold text-sm tracking-wide transition-all hover:opacity-90"
+              style={{
+                background: "#C9A84C",
+                color: "#06100A",
+                boxShadow: "0 4px 20px rgba(201,168,76,0.35)",
+              }}
             >
               Contact Support
             </button>
-
             {showTooltip && (
-              <div className="absolute top-16 left-1/2 transform -translate-x-1/2 md:left-0 md:translate-x-0 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap z-10 transition-opacity duration-300 shadow-lg">
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 px-4 py-2 rounded-lg text-sm whitespace-nowrap z-10"
+                style={{
+                  background: "rgba(240,235,225,0.95)",
+                  color: "#06100A",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                }}
+              >
                 Sorry, this feature is under construction 🚧
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex flex-col items-end justify-start w-full md:w-1/2 lg:w-[50%]">
+        <div className="flex flex-col items-stretch lg:items-end w-full lg:w-[50%]">
           {faqsToShow.map((val, index) => (
             <FAQ
               key={index}
@@ -66,14 +97,19 @@ export default function FAQSection() {
             />
           ))}
 
-          {FAQs.length > initialCount && !showAll ? (
+          {FAQs.length > initialCount && !showAll && (
             <button
               onClick={() => setShowAll(true)}
-              className="mt-6 px-6 py-2 bg-[#F0F0F0] text-black font-medium rounded-full text-sm hover:bg-[#E0E0E0] transition-colors self-center md:self-start"
+              className="mt-6 px-6 py-2.5 rounded-full text-sm font-medium self-center lg:self-start transition-all"
+              style={{
+                background: "rgba(255,255,255,0.08)",
+                color: "#F0EBE1",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
             >
               View More
             </button>
-          ) : null}
+          )}
         </div>
       </div>
     </div>

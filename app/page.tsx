@@ -6,6 +6,7 @@ import Features from '../components/Features';
 import FeaturedListings from '../components/FeaturedListings';
 import Stats from '../components/Stats';
 import CTA from '../components/CTA';
+import FAQSection from '../components/question';
 import Footer from '../components/Footer';
 // import ConsultantChat from '../components/ConsultantChat';
 
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <FeaturedListings />
         <Stats />
         <CTA onTalkToConsultant={() => setIsChatOpen(true)} />
+        <FAQSection />
       </main>
 
       <Footer />
