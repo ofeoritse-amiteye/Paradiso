@@ -39,7 +39,7 @@ const PLATFORM_FEATURES = [
     description: 'Every property undergoes a rigorous physical check and title verification with the Land Registry.',
     accent: '#2D6A4F',
     number: '01',
-    tag: 'Stays',
+    tag: 'verified',
   },
   {
     icon: <UserCheck/>,
@@ -47,7 +47,7 @@ const PLATFORM_FEATURES = [
     description: 'We only partner with registered realtors whose identities and licenses have been fully vetted by our security team.',
     accent: '#C9A84C',
     number: '02',
-    tag: 'Stays',
+    tag: 'Secure',
   },
   {
     icon: <ShieldCheck/>,
@@ -55,7 +55,7 @@ const PLATFORM_FEATURES = [
     description: 'Funds are held in a secure escrow account and only released when transaction milestones are verified.',
     accent: '#A8C4E0',
     number: '03',
-    tag: 'Stays',
+    tag: 'Safe',
   },
 ] as const;
 
