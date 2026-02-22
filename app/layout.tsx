@@ -18,7 +18,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "HomeFinder",
+  title: "Paradiso",
   description: "Find homes for sale and rent",
 };
 
