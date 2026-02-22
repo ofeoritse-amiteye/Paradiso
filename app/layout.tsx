@@ -2,13 +2,13 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 
-// Fonts
-const outfit = Outfit({
+// Fonts: Playfair for headings (Confidence-style), Jakarta for body
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-outfit",
+  variable: "--font-playfair",
 });
 
 const jakarta = Plus_Jakarta_Sans({
@@ -22,15 +22,13 @@ export const metadata = {
   description: "Find homes for sale and rent",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${jakarta.variable} antialiased bg-gray-50`}
+        className={`${playfair.variable} ${jakarta.variable} antialiased`}
       >
-        <LayoutWrapper navbar={<Navbar />} footer={<Footer />}>
           {children}
-        </LayoutWrapper>
       </body>
     </html>
   );

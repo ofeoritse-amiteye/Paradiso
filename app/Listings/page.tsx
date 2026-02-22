@@ -3,12 +3,12 @@ import { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import SearchBar from "@/components/search/SearchBar";
 import Filters from "@/components/Filters";
-import ListingsGrid from "@/components/ListingsGrid";
+import ListingsGrid from "@/components/listings/ListingsGrid";
 import { mockListings } from "@/data/mockListings";
 
 function ListingsContent() {
-  const [view, setView] = useState("list");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [view, setView] = useState<"list" | "map">("list");
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 8;
 
   const searchParams = useSearchParams();

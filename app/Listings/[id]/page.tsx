@@ -6,8 +6,9 @@ import { mockListings } from "@/data/mockListings";
 import { FiMapPin, FiHome, FiMaximize2, FiArrowLeft } from "react-icons/fi";
 
 export default function ListingDetailsPage() {
-    const { id } = useParams();
-    const listing = mockListings.find((item) => item.id === parseInt(id));
+    const params = useParams();
+    const id = typeof params.id === 'string' ? parseInt(params.id) : 0;
+    const listing = mockListings.find((item) => item.id === id);
 
     if (!listing) {
         return (

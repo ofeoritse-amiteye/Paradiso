@@ -3,12 +3,12 @@
 import { useState } from "react";
 import SearchBar from "@/components/search/SearchBar";
 import Filters from "@/components/Filters";
-import ListingsGrid from "@/components/ListingsGrid";
+import ListingsGrid from "@/components/listings/ListingsGrid";
 import { mockListings } from "@/data/mockListings";
 
 export default function ListingsPage() {
-  const [view, setView] = useState("list");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [view, setView] = useState<"list" | "map">("list");
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 8; // Adjust as needed
 
   // Logic for displaying listings
